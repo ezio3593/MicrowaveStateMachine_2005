@@ -146,7 +146,6 @@ template<class Func> void Timer<Func>::start()
 
 template<class Func> void Timer<Func>::stop() 
 { 
-	Lock l(cs);
 	stopEvent->set();
 }
 

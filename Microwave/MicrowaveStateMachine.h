@@ -52,7 +52,6 @@ template<class E, class S, class T> class Transitions
 
 template<class F> class Timer
 {
-	CriticalSection cs;
 	unsigned int time;
 	Event* stopEvent;
 	F* func;
