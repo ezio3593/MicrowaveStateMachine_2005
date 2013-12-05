@@ -247,6 +247,10 @@
 				RelativePath=".\stdafx.h"
 				>
 			</File>
+			<File
+				RelativePath=".\threads.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"

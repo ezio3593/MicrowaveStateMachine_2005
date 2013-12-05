@@ -139,6 +139,8 @@ void CMicrowaveDlg::OnBnClickedButtonOpenDoor()
 	{
 		log->ReplaceSel(getMsg(L"Event OPEN_DOOR ", microwave, false).c_str());
 	};
+
+	log->SendMessage(WM_VSCROLL, SB_PAGEDOWN, 0); 
 }
 
 void CMicrowaveDlg::OnBnClickedButtonCloseDoor()
@@ -156,6 +158,8 @@ void CMicrowaveDlg::OnBnClickedButtonCloseDoor()
 	{
 		log->ReplaceSel(getMsg(L"Event CLOSE_DOOR ", microwave, false).c_str());
 	};
+	
+	log->SendMessage(WM_VSCROLL, SB_PAGEDOWN, 0); 
 }
 
 void CMicrowaveDlg::OnDeltaposSpinTimer(NMHDR *pNMHDR, LRESULT *pResult)
@@ -193,6 +197,7 @@ void CMicrowaveDlg::OnDeltaposSpinTimer(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 
 	*pResult = 0;
+	log->SendMessage(WM_VSCROLL, SB_PAGEDOWN, 0); 
 }
 
 
@@ -219,6 +224,7 @@ void CMicrowaveDlg::OnBnClickedButtonStart()
 	{
 		log->ReplaceSel(getMsg(L"Event START ", microwave, false).c_str());
 	}
+	log->SendMessage(WM_VSCROLL, SB_PAGEDOWN, 0); 
 }
 
 void CMicrowaveDlg::CallbackTimer::operator()()
@@ -237,6 +243,7 @@ void CMicrowaveDlg::CallbackTimer::operator()()
 
 	spin->SetPos(sm->getTimerValue());
 	log->ReplaceSel(msg.c_str());
+	log->SendMessage(WM_VSCROLL, SB_PAGEDOWN, 0); 
 }
 
 std::wstring CMicrowaveDlg::getMsg(std::wstring eventName, MicrowaveStateMachine* ms, bool isPossible)
